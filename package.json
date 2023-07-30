@@ -1,0 +1,14 @@
+{
+  "name": "match_hub",
+  "version": "1.0.0",
+  "description": "This a Project that considers the Basic Requirements of the Match Hub Applications APIs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Tushar Deo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
