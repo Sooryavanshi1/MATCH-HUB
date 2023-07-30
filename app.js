@@ -10,5 +10,5 @@ const app = express();
 //nodemon is used to automatically start the server anytime a change is done in the code
 //for installation steps of express and nodemon refer the documentation provided
 app.listen(3000,()=>{
-    console.log("Server is starting on port 3000")
+    console.log("Server is started on port 3000")
 })
