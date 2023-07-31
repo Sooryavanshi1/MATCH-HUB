@@ -28,5 +28,8 @@ router.get('/all',MatchController.getAllMatches)
 //now we get the route for getting a match's details by using '_id' Property of mongoDB
 router.get('/:id',MatchController.getMatchByID)
 
+//update the results of the match
+router.patch('/:id',MatchController.updateMatchResults)
+
 //we need to export this router to use it in other files(app.js)
 module.exports = router;

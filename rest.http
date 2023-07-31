@@ -168,10 +168,47 @@ GET http://localhost:3000/matches/64c770c86b029a8bce3b5a9
 GET http://localhost:3000/matches/all
 ### now we use the id of the match to update
 
-PATCH http://localhost:3000/localhost:3000/matches/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
 Content-Type: application/json
 
 {
     "winning_team":"Chennai Super Kings",
     "losing_team":"Mumbai Indians"
 }
+###
+// now we provide a team name that did not played as the winner
+
+PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+Content-Type: application/json
+
+{
+    "winning_team":"Royal Challengers bangalore",
+    "losing_team":"Mumbai Indians"
+}
+###
+// now we provide a team name that did not played as the loser
+
+PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+Content-Type: application/json
+
+{
+    "winning_team":"Chennai Super Kings",
+    "losing_team":"Royal Challengers Bangalore"
+}
+###
+// now we leave the fields empty
+
+PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+Content-Type: application/json
+
+{
+    "winning_team":"",
+    "losing_team":""
+
+}
+###
+// tests for updating the match results done
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+

@@ -84,5 +84,35 @@ module.exports={
         } catch (error) {
             console.log(error.message)
         }
+    },
+    updateMatchResults:async(req,res,next)=>{
+        try {
+            const id = req.params.id;
+            const updates = req.body;
+            const winning_team = req.body.winning_team;
+            const losing_team = req.body.losing_team;
+            const options = {new : true};
+            const match = await Match.findById(id);
+            
+            if(winning_team===""){
+                throw(createError(422,"Please Provide the winning team"))
+            }
+            if(losing_team===""){
+                throw(createError(422,"Please Provide the losing team"))
+            }
+            if(winning_team!==match.team1_Name && winning_team!==match.team2_Name){
+                throw(createError(404,"Provided winning team has not played the match"))
+            }
+            if(losing_team!==match.team1_Name && losing_team!==match.team2_Name){
+                throw(createError(404,"Provided losing team has not played the match"))
+            }
+            const UpdatedResults = await Match.findByIdAndUpdate(id,updates,options);
+            if(!UpdatedResults){
+                throw(createError(404,"Match Cannot be found"))
+            }
+            res.send(UpdatedResults);
+        } catch (error) {
+            next(error);
+        }
     }
 }
