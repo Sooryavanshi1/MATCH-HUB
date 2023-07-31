@@ -39,5 +39,22 @@ module.exports={
             }
             next(error);
         }
+    },
+    getMatchesByDate: async(req,res,next)=>{
+       try {
+        const date = req.query.match_date;
+
+        // Find matches with the specified date
+        const matches = await Match.find({ match_date:date});
+        // if there are no matches on the date or the date format is wrong
+        if(matches.length===0){
+            throw createError(404,"No matches on this date")
+        }
+
+        // Return the matches in the response
+        res.send(matches);
+       } catch (error) {
+        next(error);
+       }
     }
 }

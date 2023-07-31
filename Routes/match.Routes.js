@@ -17,5 +17,10 @@ const MatchController = require('../Controllers/match.Controller');
 //This is the second parameter is function that will be executed when a POST request is made to the specified route
 router.post('/',MatchController.createMatch);
 
+//now we create the route for getting all matches by date
+//we use the .get() http method to find a the matches
+//we will be using query strings to implement it
+router.get('/',MatchController.getMatchesByDate);
+
 //we need to export this router to use it in other files(app.js)
 module.exports = router;

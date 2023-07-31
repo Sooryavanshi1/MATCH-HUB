@@ -1,6 +1,10 @@
 # we use rest client VS code extension for testing
 # which is quite basic 
 # since it is my first time testing an API
+# use '###' to separate a request from others
+# click on 'send request' on top of every request to send it
+# Installation steps provided in documentation
+# we must give a space between 'Content-Type' and the json payload
 
 ### For creating a new match
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,6 +18,8 @@ Content-Type: application/json
     "team1_Composition" : ["M.S. Dhoni","Ravidarsinh Jadeja", "Suresh Raina","Tushar Deshpande","Devon Conway"],
     "team2_Composition" : ["Rohit Sharma", "Dewald Brevis", "Suryakumar Yadav", "Ishan Kishan" , "N. Tilak Varma"],
     "match_date" : "16-06-2001",
+    //I am using DD-MM-YYYY format in string format
+    //It should be maintained through out the project
     "venue": "Mumbai",
     "palyer_of_the_match": "Not declared yet",
     "winning_team": "Not declared yet",
@@ -69,7 +75,7 @@ Content-Type: application/json
     "team2_Name" : "Lucknow Super Giants",
     "team1_Composition" : ["Faf du Plessis", "Akash Deep", "Anuj Rawat", "Avinash Singh", "David Willey"],
     "team2_Composition" : ["Avesh Khan",  "Mark Wood",  "Mayank Yadav", "Mohsin Khan", "Ravi Bishno"],
-    "match_date" : "17-06-2001",
+    "match_date" : "",
     "venue": "Lucknow",
     "palyer_of_the_match": "Not declared yet",
     "winning_team": "Not declared yet",
@@ -82,3 +88,36 @@ Content-Type: application/json
 
 // creating a match tests ended
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// getting all matches by date
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// we are using query strings to get matches by date
+
+GET http://localhost:3000/matches?match_date=16-06-2001
+
+###
+// creating another query strings
+
+GET  http://localhost:3000/matches?match_date=17-06-2001
+
+###
+// using a date that is not inside the collection
+ 
+GET http://localhost:3000/matches?match_date=18-06-2001
+
+### 
+// using a date with wrong format
+
+GET http://localhost:3000/matches?match_date=2001-06-16
+
+### 
+// you can make your own test cases by following the above format and adding more matches as you please
+
+
+//getting matches by date tests ended
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+

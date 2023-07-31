@@ -15,6 +15,10 @@ const MatchRoute = require('./Routes/match.Routes')
 //we need a middleware
 app.use(express.json());
 
+// the above function can only parse json type of body
+// in order to use Query string type body we need another middle ware
+app.use(express.urlencoded({ extended : true}))
+
 //initializing our database
 require('./initialize.Database')();
 

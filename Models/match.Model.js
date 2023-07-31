@@ -27,7 +27,7 @@ const matchSchema = new Schema({
     //then we get the match date
     match_date:{
         type:String,
-        // I will be using DD-MM-YYYY format
+        // I will be using DD-MM-YYYY format as a string type
         required:true,
     },
     //then we get the venue of the match
