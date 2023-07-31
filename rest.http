@@ -5,6 +5,7 @@
 # click on 'send request' on top of every request to send it
 # Installation steps provided in documentation
 # we must give a space between 'Content-Type' and the json payload
+# the ids used in the url will be different for your system
 
 ### For creating a new match
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -174,6 +175,7 @@ Content-Type: application/json
 {
     "winning_team":"Chennai Super Kings",
     "losing_team":"Mumbai Indians"
+
 }
 ###
 // now we provide a team name that did not played as the winner
@@ -211,4 +213,40 @@ Content-Type: application/json
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+//updating player of match
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// get a match id first that needs to be updated
+
+GET http://localhost:3000/matches/all
+
+###
+// now we update player of the match
+
+PATCH http://localhost:3000/matches/pl/64c770c86b029a8bce3b5a90
+Content-Type: application/json
+
+{
+    "palyer_of_the_match": "M.S. Dhoni"
+}
+###
+// now we try to update the player of the match 
+// of a match that has not been played yet
+
+PATCH http://localhost:3000/matches/pl/64c770cd6b029a8bce3b5a92
+Content-Type: application/json
+
+{
+    "palyer_of_the_match": "Shikhar. Dhawan"
+}
+
+###
+// now we try to make a player of the match
+//that is not in the winning team
+PATCH http://localhost:3000/matches/pl/64c770c86b029a8bce3b5a90
+Content-Type: application/json
+
+{
+    "palyer_of_the_match": "Shikhar. Dhawan"
+}
 

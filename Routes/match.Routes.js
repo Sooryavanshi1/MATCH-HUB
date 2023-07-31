@@ -31,5 +31,8 @@ router.get('/:id',MatchController.getMatchByID)
 //update the results of the match
 router.patch('/:id',MatchController.updateMatchResults)
 
+//update the player of match
+router.patch('/pl/:id',MatchController.updatePlayerOfMatch)
+
 //we need to export this router to use it in other files(app.js)
 module.exports = router;
