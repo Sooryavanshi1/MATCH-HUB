@@ -11,16 +11,22 @@ const router = express.Router();
 //we need to call the Controller functions to handle request and response
 const MatchController = require('../Controllers/match.Controller');
 
-//now we create the route for creating the match
+//now we get the route for creating the match
 //we use the .post() http method to create a new match
 //the first parameter and represents the URL path for which the route should be triggered
 //This is the second parameter is function that will be executed when a POST request is made to the specified route
 router.post('/',MatchController.createMatch);
 
-//now we create the route for getting all matches by date
+//now we get the route for getting all matches by date
 //we use the .get() http method to find a the matches
 //we will be using query strings to implement it
 router.get('/',MatchController.getMatchesByDate);
+
+//we get details of all the macthes
+router.get('/all',MatchController.getAllMatches)
+
+//now we get the route for getting a match's details by using '_id' Property of mongoDB
+router.get('/:id',MatchController.getMatchByID)
 
 //we need to export this router to use it in other files(app.js)
 module.exports = router;

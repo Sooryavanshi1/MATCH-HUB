@@ -56,5 +56,33 @@ module.exports={
        } catch (error) {
         next(error);
        }
+    },
+    getMatchByID:async(req,res,next)=>{
+        //first we get the id 
+        const id = req.params.id;
+        try {
+            const match = await Match.findById(id,{__v:0});
+            //if there is no match corresponding to the id
+            if(!match){
+                throw createError(404,"No Match by this ID")
+            }
+            res.send(match);
+        } catch (error) {
+            //if the id is of invalid type
+            if(error instanceof mongoose.CastError){
+                next(createError(400,"Invalid Match ID"));
+                return;
+            }
+            next(error)
+            console.log(error.message)
+        }
+    },
+    getAllMatches: async(req,res,next)=>{
+        try {
+            const matches = await Match.find({},{__v:0});
+            res.send(matches)
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 }
