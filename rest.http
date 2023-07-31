@@ -1,0 +1,84 @@
+# we use rest client VS code extension for testing
+# which is quite basic 
+# since it is my first time testing an API
+
+### For creating a new match
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// click on send request
+POST http://localhost:3000/matches
+Content-Type: application/json
+
+{
+    "team1_Name" : "Chennai Super Kings",
+    "team2_Name" : "Mumbai Indians",
+    "team1_Composition" : ["M.S. Dhoni","Ravidarsinh Jadeja", "Suresh Raina","Tushar Deshpande","Devon Conway"],
+    "team2_Composition" : ["Rohit Sharma", "Dewald Brevis", "Suryakumar Yadav", "Ishan Kishan" , "N. Tilak Varma"],
+    "match_date" : "16-06-2001",
+    "venue": "Mumbai",
+    "palyer_of_the_match": "Not declared yet",
+    "winning_team": "Not declared yet",
+    "losing_team":"Not declared yet"
+}
+// we must give a space between the Content-type and json payload
+
+###(we use '###' to separate requests)
+
+// adding another match
+//click on send request
+
+POST http://localhost:3000/matches
+Content-Type: application/json
+
+{
+    "team1_Name" : "KingsXI Punjab",
+    "team2_Name" : "Rajasthan Royals",
+    "team1_Composition" : ["Shikhar. Dhawan","Atharva. Taide","Bhanuka. Rajapaksa","Harpreet. Singh","Shahrukh. Khan"],
+    "team2_Composition" : ["Sanju Samson","Devdutt Padikkal","Jos Buttler","Shimron Hetmyer","Yashasvi Jaiswal"],
+    "match_date" : "16-06-2001",
+    "venue": "Mohali",
+    "palyer_of_the_match": "Not declared yet",
+    "winning_team": "Not declared yet",
+    "losing_team":"Not declared yet"
+}
+###
+// adding another match of a different date
+
+POST http://localhost:3000/matches
+Content-Type: application/json
+
+{
+    "team1_Name" : "Royal Challengers Bangalore",
+    "team2_Name" : "Lucknow Super Giants",
+    "team1_Composition" : ["Faf du Plessis", "Akash Deep", "Anuj Rawat", "Avinash Singh", "David Willey"],
+    "team2_Composition" : ["Avesh Khan",  "Mark Wood",  "Mayank Yadav", "Mohsin Khan", "Ravi Bishno"],
+    "match_date" : "17-06-2001",
+    "venue": "Lucknow",
+    "palyer_of_the_match": "Not declared yet",
+    "winning_team": "Not declared yet",
+    "losing_team":"Not declared yet"
+}
+
+###
+// checking the validation error handeling by removing one of the required fields
+//click on 'send request' to get the error in response
+POST http://localhost:3000/matches
+Content-Type: application/json
+
+{
+    "team1_Name" : "Royal Challengers Bangalore",
+    "team2_Name" : "Lucknow Super Giants",
+    "team1_Composition" : ["Faf du Plessis", "Akash Deep", "Anuj Rawat", "Avinash Singh", "David Willey"],
+    "team2_Composition" : ["Avesh Khan",  "Mark Wood",  "Mayank Yadav", "Mohsin Khan", "Ravi Bishno"],
+    "match_date" : "17-06-2001",
+    "venue": "Lucknow",
+    "palyer_of_the_match": "Not declared yet",
+    "winning_team": "Not declared yet",
+    "losing_team":"Not declared yet"
+}
+###
+// you can add your own tests by copying the above fromat
+
+
+
+// creating a match tests ended
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

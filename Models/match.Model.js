@@ -18,7 +18,7 @@ const matchSchema = new Schema({
     //then we get the compostion of the teams involved
     team1_Composition:{
         type:Array,
-        required:true
+        required:true,
     },
     team2_Composition:{
         type:Array,
@@ -27,6 +27,7 @@ const matchSchema = new Schema({
     //then we get the match date
     match_date:{
         type:String,
+        // I will be using DD-MM-YYYY format
         required:true,
     },
     //then we get the venue of the match
@@ -47,7 +48,11 @@ const matchSchema = new Schema({
     losing_team:{
         type:String,
         required:true,
-    }
+    },
+    // __v:{ 
+    //     type: Number,
+    //     select: false
+    // }
 });
 
 //inorder to use this schema we must create a model
