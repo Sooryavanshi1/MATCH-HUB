@@ -34,5 +34,6 @@ router.patch('/:id',MatchController.updateMatchResults)
 //update the player of match
 router.patch('/pl/:id',MatchController.updatePlayerOfMatch)
 
+router.get('/performance/:teamName', MatchController.getATeamsPerformance);
 //we need to export this router to use it in other files(app.js)
 module.exports = router;

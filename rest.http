@@ -249,4 +249,21 @@ Content-Type: application/json
 {
     "palyer_of_the_match": "Shikhar. Dhawan"
 }
+###
+// updating player of the match tests done
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+//getting a teams performance till now
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//we add '/performance' in our url for the route
+//then we add the name of the team at the end and use '%' for spaces
+
+//we use a team name that has played matche(s) to test
+GET http://localhost:3000/matches/performance/Chennai%20Super%20Kings
+###
+
+//now we use a team that is yet to play a match
+GET http://localhost:3000/matches/performance/Royal%20Challengers%20Bangalore
