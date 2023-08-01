@@ -142,7 +142,7 @@ GET http://localhost:3000/matches/all
 ### the id that I have passed here belongs to my Database's Collection
 ### it won't work on your system
 ### use the above get request to get an appropriate id
-GET http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+GET http://localhost:3000/matches/64c88c49e61eea424be76e76
 
 ###
 
@@ -169,7 +169,7 @@ GET http://localhost:3000/matches/64c770c86b029a8bce3b5a9
 GET http://localhost:3000/matches/all
 ### now we use the id of the match to update
 
-PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/64c88c49e61eea424be76e76
 Content-Type: application/json
 
 {
@@ -180,7 +180,7 @@ Content-Type: application/json
 ###
 // now we provide a team name that did not played as the winner
 
-PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/64c88c49e61eea424be76e76
 Content-Type: application/json
 
 {
@@ -190,7 +190,7 @@ Content-Type: application/json
 ###
 // now we provide a team name that did not played as the loser
 
-PATCH http://localhost:3000/matches/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/64c88c49e61eea424be76e76
 Content-Type: application/json
 
 {
@@ -223,7 +223,7 @@ GET http://localhost:3000/matches/all
 ###
 // now we update player of the match
 
-PATCH http://localhost:3000/matches/pl/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/pl/64c88c49e61eea424be76e76
 Content-Type: application/json
 
 {
@@ -232,8 +232,8 @@ Content-Type: application/json
 ###
 // now we try to update the player of the match 
 // of a match that has not been played yet
-
-PATCH http://localhost:3000/matches/pl/64c770cd6b029a8bce3b5a92
+// get the id of a team that has not played yet
+PATCH http://localhost:3000/matches/pl/64c88c51e61eea424be76e78
 Content-Type: application/json
 
 {
@@ -243,7 +243,7 @@ Content-Type: application/json
 ###
 // now we try to make a player of the match
 //that is not in the winning team
-PATCH http://localhost:3000/matches/pl/64c770c86b029a8bce3b5a90
+PATCH http://localhost:3000/matches/pl/64c88c49e61eea424be76e76
 Content-Type: application/json
 
 {
@@ -267,3 +267,8 @@ GET http://localhost:3000/matches/performance/Chennai%20Super%20Kings
 
 //now we use a team that is yet to play a match
 GET http://localhost:3000/matches/performance/Royal%20Challengers%20Bangalore
+
+###
+//tests for player of the match ended
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
