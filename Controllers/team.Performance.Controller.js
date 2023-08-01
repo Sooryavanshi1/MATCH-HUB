@@ -5,6 +5,7 @@ const Match = require('../Models/match.Model');
 module.exports={
     getATeamsPerformance: async(req,res,next)=>{
         try {
+            // getting the team's name from the url
             const teamName = req.params.teamName;
         
             // Find matches where the provided team was either the winning team or the losing team
@@ -24,6 +25,7 @@ module.exports={
               }
               
             });
+            //if the given team has not played a single match
             if(wins===0 && losses===0){
                 throw(createError(404,"The team provided has not played a single match" ))
             }
