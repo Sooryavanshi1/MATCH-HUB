@@ -84,5 +84,25 @@ module.exports={
         } catch (error) {
             console.log(error.message)
         }
+    },
+    deleteAMatchByID :async(req,res,next)=>{
+
+        const id = req.params.id;
+        try {
+            const result = await Match.findByIdAndDelete(id);
+            if(!result){
+                throw createError(404,"Match not found")
+            }
+            res.send(result)
+    //if we try to delete a non existent file then the 
+    //result will have null value
+        } catch (error) {
+            console.log(error.message)
+            if(error instanceof mongoose.CastError){
+                next(createError(400,"Invalid Match Id"));
+                return;
+            }
+            next(error)
+        }
     }
 }

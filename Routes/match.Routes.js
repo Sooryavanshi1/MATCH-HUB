@@ -34,6 +34,9 @@ router.get('/all',MatchController.getAllMatches)
 //now we get the route for getting a match's details by using '_id' Property of mongoDB
 router.get('/:id',MatchController.getMatchByID)
 
+//we must also have the functionality to delete a match by id
+router.delete('/:id',MatchController.deleteAMatchByID)
+
 //update the results of the match
 router.patch('/:id',UpdateMatchController.updateMatchResults)
 
